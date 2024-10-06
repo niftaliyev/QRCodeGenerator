@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "QR Code Index";
+}
+
+<h2>QR Code Generator</h2>
+
+<form asp-controller="QRCode" asp-action="Index" method="get">
+    <div>
+        <label for="text">Enter text for QR code:</label>
+        <input type="text" id="text" name="text" required />
+    </div>
+    <button type="submit">Generate</button>
+</form>
+
+@if (ViewBag.QRCodeImage != null)
+{
+    <h3>Your QR Code:</h3>
+    <img src="@ViewBag.QRCodeImage" alt="Generated QR Code" />
+}
